@@ -1,3 +1,25 @@
+.navbar{
+
+    background-color: #fff;
+    border-bottom: solid 1px #eeeeee;
+    height: 60px;
+    
+  }
+  
+  .navbar-brand {
+    left:calc(50% - 45px);
+    position: absolute;
+    padding:0;
+    top:10px;
+  }
+  img{
+
+    height: 80px;
+    width: auto;
+
+  }
+  
+
 .jumbotron{
     
     color: #ff5163;
@@ -65,7 +87,7 @@ a.btn:hover{
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
-user agent stylesheet
+
 div {
     display: block;
 }
