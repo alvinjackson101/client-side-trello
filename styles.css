@@ -30,6 +30,8 @@
     
     color: #ff5163;
     background-color: #fff;
+    padding: 0px;
+    margin: 0px;
 
 
 }
@@ -43,6 +45,12 @@ h1{
 .container{
 
     padding-top: 40px;
+
+}
+
+.row{
+
+
 
 }
 
