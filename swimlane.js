@@ -25,16 +25,29 @@ function hideButton () {
     showFormButtonContainer.style.display = "block"
 }
 
+
+
+function getRandomSwimlane(){
+    let arrMonsters = [
+        {name: "Mike", file: "board-monster1.png", darkColor: "#3bcebc"},
+        {name: "Sully", file: "board-monster2.png", darkColor: "#bc8f00"},
+        {name: "Boo", file: "board-monster3.png", darkColor: "#8549db"},
+        {name: "Manager", file: "board-monster4.png", darkColor: "#f63333"},
+        // {name: "Celia", file: "board-monster.png", darkColor: "#5F3F5F"},
+        // {name: "Waternoose", file: "board-monster.png", darkColor: "#212E3E"},
+    ];
+    console.log(arrMonsters[Math.floor(Math.random()*arrMonsters.length)])
+    return arrMonsters[Math.floor(Math.random()*arrMonsters.length)];
+}
+
 //add a swimlane
 //add another swimlane
 function addSwimlane() {
-
-    
-
     swimlaneID++;
 
     //make a swimlane id
     var id = "swimlane" + swimlaneID;
+    var randomSwimlaneStyles = getRandomSwimlane();
 
     //create a swimlane
     var swimlane = document.createElement("DIV");
@@ -44,6 +57,7 @@ function addSwimlane() {
     swimlane.setAttribute("data-swimlane-id", swimlaneID);
     //set the class
     swimlane.setAttribute("class", "swimlane");
+    swimlane.setAttribute("style", `background-color: ${randomSwimlaneStyles.darkColor}`);
 
     let newSwimlaneButtonContainer = document.getElementById("new-swimlane-button-container");
 
@@ -60,8 +74,9 @@ function addSwimlane() {
 
 
     let backgroundImage = document.createElement("DIV");
-
     backgroundImage.setAttribute("class", "background-image");
+    backgroundImage.setAttribute("style", `background-image: url(${randomSwimlaneStyles.file})`);
+    
 
     swimlane.appendChild(backgroundImage);
 

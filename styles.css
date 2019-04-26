@@ -65,7 +65,6 @@ h1{
     display: flex;
     justify-content: left;
     flex-direction: column;
-    align-items: 
     max-width: 70%;
     margin: auto;
     padding: 10px;
@@ -107,14 +106,14 @@ div {
 }
 
 .container {
-
     background-color: #fff;
     width: 99%;
     height: 98vh;
     display: flex;
+    overflow-x:scroll;
 }
 .swimlane {
-    width: 100px;
+    min-width: 200px;
     height: 100%;
     background-color: #169e8a;
     flex-basis: 200px;
@@ -141,7 +140,7 @@ div {
 
 .background-image {
     height: 193px;
-    background-image: url(board-monster1.png);
+    /* background-image: url("board-monster1.png"); */
     position: relative;
     top: -90px;
     left: -2px;
