@@ -105,12 +105,13 @@ div {
     display: block;
 }
 
-.container {
+.app-container {
     background-color: #fff;
-    width: 99%;
+    width: 100vw;
     height: 98vh;
     display: flex;
     overflow-x:scroll;
+    
 }
 .swimlane {
     min-width: 200px;

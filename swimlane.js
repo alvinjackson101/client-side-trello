@@ -61,7 +61,7 @@ function addSwimlane() {
 
     let newSwimlaneButtonContainer = document.getElementById("new-swimlane-button-container");
 
-    let swimlaneContainer = document.querySelector(".container");
+    let swimlaneContainer = document.querySelector(".app-container");
 
     //add to the container
     swimlaneContainer.insertBefore(swimlane, newSwimlaneButtonContainer);
