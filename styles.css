@@ -111,11 +111,12 @@ div {
     height: 98vh;
     display: flex;
     overflow-x:scroll;
+    margin: 14px;
 
 }
 .swimlane {
-    width: 200px;
-    height: 100%;
+    width: 500px;
+    height: 90%;
     background-color: #169e8a;
     flex-basis: 200px;
     /* background-image: url("board-monster1.png"); */
@@ -131,8 +132,10 @@ div {
 .dialog-box-container{
     position: relative;
     background: #00aabb;
-    border-radius: .4em;
+    border-radius: 1em;
     height: 125px;
+    padding: 24px 14px 14px 14px;
+    margin-left: 14px;
 }
 
 .dialog-box-container::after{
