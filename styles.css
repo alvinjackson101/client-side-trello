@@ -54,9 +54,9 @@ h1{
 
 }
 
-h1{
+h1 p{
 
-    font-family: arial;
+    font-family: Arial, Helvetica, sans-serif;
 
 }
 
@@ -88,6 +88,23 @@ a.btn:hover{
     border: 3px solid #643e9b;
     
 
+}
+
+.btnaddlist {
+
+    background-color: #ececec;
+    color: rgb(66, 66, 66);
+    border: 3px solid #e6e6e6;
+    border-radius: 40px;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+a.btnaddlist:hover{
+
+    background-color: #6e44a7;
+    color: #fff;
+    border: 3px solid #643e9b;
 }
 
 .col-lg-5 {
@@ -168,10 +185,28 @@ div {
 
 .background-image {
     height: 193px;
-    /* background-image: url("board-monster1.png"); */
     position: relative;
     top: -90px;
     left: -2px;
     background-repeat: no-repeat;
     background-size: 200px;
+}
+
+#swimlane-title-1{
+
+    color:#fff;
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
+
+}
+.box-container-title{
+
+    color:#fff;
+    font-size: 1.3em;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: left;
+    padding: 0px 0px 12px 0px;
+
 }

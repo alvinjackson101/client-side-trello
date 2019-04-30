@@ -49,15 +49,24 @@ function addSwimlane() {
     var id = "swimlane" + swimlaneID;
     var randomSwimlaneStyles = getRandomSwimlane();
 
+    //create title
+    var title = document.createElement("DIV");
+    var titleid = "swimlane-title-" + swimlaneID;
+    title.setAttribute("id", titleid);
+    title.setAttribute("data-title-id", titleid);
+
     //create a swimlane
     var swimlane = document.createElement("DIV");
 
     //set id attribute
     swimlane.setAttribute("id", id);
     swimlane.setAttribute("data-swimlane-id", swimlaneID);
+
     //set the class
     swimlane.setAttribute("class", "swimlane");
     swimlane.setAttribute("style", `background-color: ${randomSwimlaneStyles.darkColor}`);
+
+    swimlane.appendChild(title);
 
     let newSwimlaneButtonContainer = document.getElementById("new-swimlane-button-container");
 
@@ -71,6 +80,15 @@ function addSwimlane() {
     console.log(swimlaneInput)
 
     console.log(swimlaneInput.value)
+    let titlediv = document.querySelector("#" + titleid);
+    titlediv.innerHTML = swimlaneInput.value;
+     //Adds title swimlane in swimlane
+ 
+//function swimlaneInput() {
+   // var x = document.getElementById("swimlaneInput").innerHTML;
+    //document.getElementById("title").innerHTML = x;
+  //}
+  
 
 
     let backgroundImage = document.createElement("DIV");
