@@ -100,11 +100,27 @@ a.btn:hover{
     padding-right: 40px;
 }
 
-a.btnaddlist:hover{
+.btnaddlist:hover{
 
     background-color: #6e44a7;
     color: #fff;
     border: 3px solid #643e9b;
+}
+
+#button-addon2{
+
+    background-color: #6e44a7;
+    color: #fff;
+    border: 3px solid #643e9b;
+    padding: 8px;
+
+}
+
+#button-addon2:hover{
+
+    background-color: #eb5b69;
+    color: #fff;
+    border: 3px solid #db5361;
 }
 
 .col-lg-5 {
