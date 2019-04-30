@@ -132,14 +132,10 @@ div {
 
 }
 .swimlane {
-    width: 500px;
-    height: 90%;
+    width: 100vw;
+    height: 90vh;
     background-color: #169e8a;
     flex-basis: 200px;
-    /* background-image: url("board-monster1.png"); */
-    /*height: 500px;*/
-    background-position: top;
-    background-repeat: no-repeat;
     margin-top: 125px;
     margin-left: 16px;
     border-radius: 20px;
@@ -200,6 +196,15 @@ div {
     text-align: center;
 
 }
+
+#swimlane-title-input{
+
+    border-radius: 8px;
+    border: 2px solid #0796a3;
+    padding: 4px 8px 4px 8px;
+
+}
+
 .box-container-title{
 
     color:#fff;
