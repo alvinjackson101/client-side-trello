@@ -9,34 +9,35 @@
     </head>
 
     <body>
-            <nav class="navbar navbar-light bg-light">
-                    <a class="navbar-brand" href="https://alvinjackson101.github.io/client-side-trello">
-                       <img src="logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
-                  <p id="logoname" width="30" height="30" class="d-inline-block align-center" alt="">Monsteriffic</p>
-                   </a>
-                   </nav>
-            <nav class="navbarboard navbar-light">
-                    <a class="navbar-board" href="https://alvinjackson101.github.io/client-side-trello">
-                       <img id="boardimg" src="logo-board.png" width="30" height="30" class="d-inline-block align-top" alt="">
-                   </a>
-            </nav>
+        <nav class="navbar navbar-light bg-light">
+            <a class="navbar-brand" href="https://alvinjackson101.github.io/client-side-trello">
+                <img src="logo.png" width="30" height="30" class="d-inline-block align-top" alt="">Monsteriffic
+            </a>
+            <div class="nav-login">
+                <a id="login">Log In</a>
+                <button class="btnnav btn-outline-success btn-md px-4" id="navbtn">Sign Up</button>
+            </div>
+        </nav>
 
-            <!-- width: 250px; background image styles drake 
-             -->
+        <nav class="navbarboard navbar-light">
+            <a class="navbar-board" href="https://alvinjackson101.github.io/client-side-trello">
+                <img id="boardimg" src="logo-board.png" width="30" height="20" class="d-inline-block align-top" alt="">
+            </a>
+        </nav>
                   
                 <div class="app-container">
                     <div id="new-swimlane-button-container">
                         <div>
                             <div id="form" class="dialog-box-container" style="display: none">
                                 <div>
-                                        <button type="button" class="close" aria-label="Close" onclick="hideButton()">
-                                                <span aria-hidden="true">&times;</span>
-                                              </button></div>
+                                    <button type="button" class="close" aria-label="Close" onclick="hideButton()">
+                                            <span aria-hidden="true">&times;</span>
+                                            </button></div>
                                     <div class="box-container-title" >Hey, name your list!</div>
                                     <input type="text" id="swimlane-title-input" placeholder="Add List Title" />
                                     <button class="rounded-circle btn-outline-secondary" type="submit" id="button-addon2" onclick="addSwimlane()">
                                             <i class="fas fa-plus"></i>
-                                          </button>
+                                    </button>
                                 </div>
                             </div>
                         </div>

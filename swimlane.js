@@ -29,10 +29,10 @@ function hideButton () {
 
 function getRandomSwimlane(){
     let arrMonsters = [
-        {name: "Mike", file: "board-monster1.png", darkColor: "#3bcebc"},
-        {name: "Sully", file: "board-monster2.png", darkColor: "#bc8f00"},
-        {name: "Boo", file: "board-monster3.png", darkColor: "#8549db"},
-        {name: "Manager", file: "board-monster4.png", darkColor: "#f63333"},
+        {name: "monster1", file: "board-monster1.png", darkColor: "#3bcebc"},
+        {name: "yellowmonster", file: "board-monster2.png", darkColor: "#f4c531"},
+        {name: "monster3", file: "board-monster3.png", darkColor: "#8549db"},
+        {name: "monster4", file: "board-monster4.png", darkColor: "#f63333"},
         // {name: "Celia", file: "board-monster.png", darkColor: "#5F3F5F"},
         // {name: "Waternoose", file: "board-monster.png", darkColor: "#212E3E"},
     ];
