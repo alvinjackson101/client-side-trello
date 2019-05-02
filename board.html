@@ -19,37 +19,42 @@
             </div>
         </nav>
 
-        <nav class="navbarboard navbar-light">
-            <a class="navbar-board" href="https://alvinjackson101.github.io/client-side-trello">
+       <nav class="navbar navbar-light" id="navbarboard">
+            <a class="board-logo" href="https://alvinjackson101.github.io/client-side-trello">
                 <img id="boardimg" src="logo-board.png" width="30" height="20" class="d-inline-block align-top" alt="">
             </a>
         </nav>
+
                   
-                <div class="app-container">
-                    <div id="new-swimlane-button-container">
-                        <div>
-                            <div id="form" class="dialog-box-container" style="display: none">
-                                <div>
-                                    <button type="button" class="close" aria-label="Close" onclick="hideButton()">
-                                            <span aria-hidden="true">&times;</span>
-                                            </button></div>
-                                    <div class="box-container-title" >Hey, name your list!</div>
-                                    <input type="text" id="swimlane-title-input" placeholder="Add List Title" />
-                                    <button class="rounded-circle btn-outline-secondary" type="submit" id="button-addon2" onclick="addSwimlane()">
-                                            <i class="fas fa-plus"></i>
-                                    </button>
-                                </div>
+        <div class="app-container">
+                <!-- <div id="swimlane1" data-swimlane-id="1" class="swimlane" style="background-color: #f63333">
+                    <div class="swimlane-title">
+                        <p>title</p>
+                    </div>
+                </div> -->
+                <div id="new-swimlane-button-container">
+                    <div>
+                        <div id="form" class="dialog-box-container" style="display: none">
+                            <div>
+                                <button type="button" class="close" aria-label="Close" onclick="hideButton()">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
                             </div>
+                            <div class="box-container-title" >Hey, name your list!</div>
+                            <input type="text" id="swimlane-title-input" placeholder="Add List Title" />
+                            <button class="rounded-circle btn-outline-secondary" type="submit" id="button-addon2" onclick="addSwimlane()">
+                                    <i class="fas fa-plus"></i>
+                            </button>
                         </div>
-                        <div id="present-form-button-container">
-
-                            <input type="button" class="btnaddlist btn-success btn-md px-4" value="+ add list" onclick="showButton()" />
-                        </div>
-
                     </div>
                 </div>
-                <script src="swimlane.js"></script>           
-    </body>
+                <div id="present-form-button-container">
+                    <input type="button" class="btnaddlist btn-success btn-md px-4" value="+ add list" onclick="showButton()" />
+                </div>
+        </div>
 
+        <script src="swimlane.js"></script>
+
+    </body>
 </html>
     

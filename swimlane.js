@@ -33,8 +33,6 @@ function getRandomSwimlane(){
         {name: "yellowmonster", file: "board-monster2.png", darkColor: "#f4c531"},
         {name: "monster3", file: "board-monster3.png", darkColor: "#8549db"},
         {name: "monster4", file: "board-monster4.png", darkColor: "#f63333"},
-        // {name: "Celia", file: "board-monster.png", darkColor: "#5F3F5F"},
-        // {name: "Waternoose", file: "board-monster.png", darkColor: "#212E3E"},
     ];
     console.log(arrMonsters[Math.floor(Math.random()*arrMonsters.length)])
     return arrMonsters[Math.floor(Math.random()*arrMonsters.length)];
@@ -44,96 +42,89 @@ function getRandomSwimlane(){
 //add another swimlane
 function addSwimlane() {
     swimlaneID++;
+    const id = "swimlane" + swimlaneID;
+    const randomSwimlaneStyles = getRandomSwimlane();
 
-    //make a swimlane id
-    var id = "swimlane" + swimlaneID;
-    var randomSwimlaneStyles = getRandomSwimlane();
+    // create a swimlane
+    const swimlane = document.createElement("DIV");
+        //set id attribute
+        swimlane.setAttribute("id", id);
+        swimlane.setAttribute("data-swimlane-id", swimlaneID);
+    
+        //set the class
+        swimlane.setAttribute("class", "swimlane");
+        swimlane.setAttribute("style", `background-color: ${randomSwimlaneStyles.darkColor}`);
+    
 
-    //create title
-    var title = document.createElement("DIV");
-    var titleid = "swimlane-title-" + swimlaneID;
-    title.setAttribute("id", titleid);
-    title.setAttribute("data-title-id", titleid);
+        // create background image
+        let backgroundImage = document.createElement("DIV");
+        backgroundImage.setAttribute("class", "background-image");
+        backgroundImage.setAttribute("style", `background-image: url(${randomSwimlaneStyles.file})`);
+    
 
-    //create a swimlane
-    var swimlane = document.createElement("DIV");
+        swimlane.appendChild(backgroundImage);
 
-    //set id attribute
-    swimlane.setAttribute("id", id);
-    swimlane.setAttribute("data-swimlane-id", swimlaneID);
 
-    //set the class
-    swimlane.setAttribute("class", "swimlane");
-    swimlane.setAttribute("style", `background-color: ${randomSwimlaneStyles.darkColor}`);
+        //create title
+        const title = document.createElement("DIV");
+        title.setAttribute("class", 'swimlane-title');
+        title.setAttribute("data-title-id", swimlaneID);
 
-    swimlane.appendChild(title);
+        const swimlaneInput = document.getElementById("swimlane-title-input");
+        title.innerText = swimlaneInput.value;
+
+        // add title to the swimlane
+        swimlane.appendChild(title);
+
+        //create a "delete swimlane" button
+        const btnDelSwimlane = document.createElement("INPUT");
+        btnDelSwimlane.setAttribute("type", "button");
+        btnDelSwimlane.setAttribute("value", "X");
+        btnDelSwimlane.setAttribute("id", "btnDel" + swimlaneID);
+        btnDelSwimlane.setAttribute("data-swimlane-id", swimlaneID);
+        btnDelSwimlane.addEventListener("click", deleteSwimlane);
+        swimlane.appendChild(btnDelSwimlane);
+
+        //create a "add card" button
+        const btnAddCard = document.createElement("INPUT");
+        btnAddCard.setAttribute("type", "button");
+        btnAddCard.setAttribute("value", "Add Card");
+        btnAddCard.setAttribute("class", "btnAddCard" + swimlaneID);
+        btnAddCard.setAttribute("data-swimlane-id", swimlaneID);
+        btnAddCard.addEventListener("click", addCard);
+        swimlane.appendChild(btnAddCard);
+
+
+        //create a "move swimlane left" button
+        const btnMoveSwimlaneLeft = document.createElement("INPUT");
+        btnMoveSwimlaneLeft.setAttribute("type", "button");
+        btnMoveSwimlaneLeft.setAttribute("value", "◀️");
+        btnMoveSwimlaneLeft.setAttribute("data-swimlane-id", swimlaneID);
+        btnMoveSwimlaneLeft.setAttribute("data-direction", "left");
+        btnMoveSwimlaneLeft.addEventListener("click", moveSwimlane);
+        swimlane.appendChild(btnMoveSwimlaneLeft);
+
+
+        //create a "move swimlane right" button
+        const btnMoveSwimlaneRight = document.createElement("INPUT");
+        btnMoveSwimlaneRight.setAttribute("type", "button");
+        btnMoveSwimlaneRight.setAttribute("value", "▶️");
+        btnMoveSwimlaneRight.setAttribute("data-swimlane-id", swimlaneID);
+        btnMoveSwimlaneRight.setAttribute("data-direction", "right");
+        btnMoveSwimlaneRight.addEventListener("click", moveSwimlane);
+        swimlane.appendChild(btnMoveSwimlaneRight);
+
+
+        const cardContainer = document.createElement("DIV");
+        swimlane.appendChild(cardContainer);
 
     let newSwimlaneButtonContainer = document.getElementById("new-swimlane-button-container");
 
     let swimlaneContainer = document.querySelector(".app-container");
 
-    //add to the container
+    // add the swimlane to the container before the add swimlane button container
     swimlaneContainer.insertBefore(swimlane, newSwimlaneButtonContainer);
-
-    let swimlaneInput = document.getElementById("swimlane-title-input");
-
-    console.log(swimlaneInput)
-
-    console.log(swimlaneInput.value)
-    let titlediv = document.querySelector("#" + titleid);
-    titlediv.innerHTML = swimlaneInput.value;
      //Adds title swimlane in swimlane
- 
-//function swimlaneInput() {
-   // var x = document.getElementById("swimlaneInput").innerHTML;
-    //document.getElementById("title").innerHTML = x;
-  //}
-  
-
-
-    let backgroundImage = document.createElement("DIV");
-    backgroundImage.setAttribute("class", "background-image");
-    backgroundImage.setAttribute("style", `background-image: url(${randomSwimlaneStyles.file})`);
-    
-
-    swimlane.appendChild(backgroundImage);
-
-    //create a "move swimlane left" button
-    var btnMoveSwimlaneLeft = document.createElement("INPUT");
-    btnMoveSwimlaneLeft.setAttribute("type", "button");
-    btnMoveSwimlaneLeft.setAttribute("value", "◀️");
-    btnMoveSwimlaneLeft.setAttribute("data-swimlane-id", swimlaneID);
-    btnMoveSwimlaneLeft.setAttribute("data-direction", "left");
-    btnMoveSwimlaneLeft.addEventListener("click", moveSwimlane);
-    swimlane.appendChild(btnMoveSwimlaneLeft);
-
-    //create a "add card" button
-    var btnAddCard = document.createElement("INPUT");
-    btnAddCard.setAttribute("type", "button");
-    btnAddCard.setAttribute("value", "Add Card");
-    btnAddCard.setAttribute("id", "btnAddCard" + swimlaneID);
-    btnAddCard.setAttribute("data-swimlane-id", swimlaneID);
-    btnAddCard.addEventListener("click", addCard);
-    swimlane.appendChild(btnAddCard);
-
-    //create a "delete swimlane" button
-    var btnDelSwimlane = document.createElement("INPUT");
-    btnDelSwimlane.setAttribute("type", "button");
-    btnDelSwimlane.setAttribute("value", "X");
-    btnDelSwimlane.setAttribute("id", "btnDel" + swimlaneID);
-    btnDelSwimlane.setAttribute("data-swimlane-id", swimlaneID);
-    btnDelSwimlane.addEventListener("click", deleteSwimlane);
-    swimlane.appendChild(btnDelSwimlane);
-
-    //create a "move swimlane right" button
-    var btnMoveSwimlaneRight = document.createElement("INPUT");
-    btnMoveSwimlaneRight.setAttribute("type", "button");
-    btnMoveSwimlaneRight.setAttribute("value", "▶️");
-    btnMoveSwimlaneRight.setAttribute("data-swimlane-id", swimlaneID);
-    btnMoveSwimlaneRight.setAttribute("data-direction", "right");
-    btnMoveSwimlaneRight.addEventListener("click", moveSwimlane);
-    swimlane.appendChild(btnMoveSwimlaneRight);
-
 
     showButton();
 }
@@ -153,6 +144,7 @@ function deleteSwimlane() {
 
 //add a card to swimlane
 function addCard() {
+    const addCardButton = this;
     cardID++;
 
     //get the swimlane id from the button that was clicked

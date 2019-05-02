@@ -3,6 +3,10 @@ body, html {
     margin: 0;
   }
 
+  .h2 {
+      color: red;
+  }
+
 .navbar{
 
     padding: 14px;
@@ -15,19 +19,19 @@ body, html {
     color:#6e44a7;
 }
 
-.navbarboard{
+#navbarboard{
 
-    background-color: #fff;
     height: 60px;
     
-  }
+ }
   
-  .navbar-board {
+  .board-logo {
     left:calc(50% - 45px);
     position: absolute;
     padding:0;
-    top:10px;
+    top:-65px;
   }
+
   #boardimg{
 
     height: 110px;
@@ -94,8 +98,7 @@ h1 p{
     border-radius: 40px;
     padding: 6px 40px 6px 40px;
     color: #643e9b;
-   
-
+    
 }
 
 #navbtn:hover{
@@ -135,6 +138,7 @@ a.btn:hover{
     border-radius: 40px;
     padding-left: 40px;
     padding-right: 40px;
+    margin: 14px;
 }
 
 .btnaddlist:hover{
@@ -181,21 +185,9 @@ div {
     height: 98vh;
     display: flex;
     overflow-x:scroll;
-    margin: 14px;
-     /* The image used 
-     background-image: url("board-background.png");
-   
-     /* Center and scale the image nicely 
-     background-position: center;
-     background-repeat: no-repeat;
-     background-size: cover;
-     height: 100%;*/
-     background: url("board-background.png") no-repeat center center fixed;
-     background-position: bottom;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+    background: url("board-background.png") no-repeat center center fixed;
+    background-position: bottom;
+    background-size: cover;
    
 }
 .swimlane {
@@ -255,7 +247,7 @@ div {
     background-size: 180px;
 }
 
-#swimlane-title-1{
+.swimlane-title{
 
     color:#fff;
     font-size: 2em;
