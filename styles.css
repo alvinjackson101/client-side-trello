@@ -42,7 +42,7 @@ body, html {
   #logoname{
 
     color: #643e9b
-    weight: 30px;
+    /* weight: 30px; */
 
   }
   
@@ -188,17 +188,21 @@ div {
     background: url("board-background.png") no-repeat center center fixed;
     background-position: bottom;
     background-size: cover;
+    overflow: scroll;
    
 }
 .swimlane {
-    width: 100vw;
     height: 80vh;
     background-color: #169e8a;
-    flex-basis: 200px;
+    flex-basis: 250px;
     margin-top: 125px;
     margin-left: 16px;
     border-radius: 20px;
-
+    /* text-align:center; */
+    /* display:flex; */
+    /* flex-direction:column; */
+    /* justify-content: center; */
+    /* align-items:center; */
 }
 
 .dialog-box-container{
@@ -242,7 +246,7 @@ div {
     height: 235px;
     position: relative;
     top: -101px;
-    left: 9px;
+    left: 34px;
     background-repeat: no-repeat;
     background-size: 180px;
 }
@@ -253,7 +257,8 @@ div {
     font-size: 2em;
     font-weight: bold;
     text-align: center;
-
+    margin-top: -85px;
+    
 }
 
 #swimlane-title-input{
@@ -272,5 +277,30 @@ div {
     font-family: Arial, Helvetica, sans-serif;
     text-align: left;
     padding: 0px 0px 12px 0px;
+
+}
+
+/*Card Designs*/
+.btnAddCard1{
+
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    padding: 8px  24px 8px 24px;
+    width: 90%;
+    margin-left:5%;
+    border-radius: 20px;
+    border: none;
+}
+
+.rounded-circle-delete{
+    background-color: rgba(255, 255, 255, .0);
+    opacity: .5;
+    color: #fff;
+    font-size: 20px;
+    border: none;
+    top: 113.7px;
+    position: relative;
+    right: -178px;
+
 
 }

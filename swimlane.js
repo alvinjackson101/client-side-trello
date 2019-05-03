@@ -60,10 +60,18 @@ function addSwimlane() {
         let backgroundImage = document.createElement("DIV");
         backgroundImage.setAttribute("class", "background-image");
         backgroundImage.setAttribute("style", `background-image: url(${randomSwimlaneStyles.file})`);
+        backgroundImage.insertAdjacentHTML('beforeend', `<button class="rounded-circle-delete" type="button"  onclick="deleteSwimlane(${swimlaneID})" value="X"><i class="fas fa-trash-alt"></i></button>`)
     
 
         swimlane.appendChild(backgroundImage);
 
+        //create a "delete swimlane" button
+        // const btnDelSwimlane = document.createElement("INPUT");
+        // btnDelSwimlane.setAttribute("type", "button");
+        // btnDelSwimlane.setAttribute("value", "X");
+        // btnDelSwimlane.setAttribute("id", "btnDel" + swimlaneID);
+        // btnDelSwimlane.setAttribute("data-swimlane-id", swimlaneID);
+        // btnDelSwimlane.addEventListener("click", deleteSwimlane);
 
         //create title
         const title = document.createElement("DIV");
@@ -71,52 +79,48 @@ function addSwimlane() {
         title.setAttribute("data-title-id", swimlaneID);
 
         const swimlaneInput = document.getElementById("swimlane-title-input");
-        title.innerText = swimlaneInput.value;
+        title.innerHTML = `${swimlaneInput.value}`;
 
         // add title to the swimlane
         swimlane.appendChild(title);
 
-        //create a "delete swimlane" button
-        const btnDelSwimlane = document.createElement("INPUT");
-        btnDelSwimlane.setAttribute("type", "button");
-        btnDelSwimlane.setAttribute("value", "X");
-        btnDelSwimlane.setAttribute("id", "btnDel" + swimlaneID);
-        btnDelSwimlane.setAttribute("data-swimlane-id", swimlaneID);
-        btnDelSwimlane.addEventListener("click", deleteSwimlane);
-        swimlane.appendChild(btnDelSwimlane);
+
+        const cardContainer = document.createElement("DIV");
+        cardContainer.setAttribute("class", "card-container");
+        cardContainer.setAttribute('data-swimlane-id', `${swimlaneID}`);
+        cardContainer.setAttribute('id', `card-container-${swimlaneID}`);
+        swimlane.appendChild(cardContainer);
+
+        
 
         //create a "add card" button
         const btnAddCard = document.createElement("INPUT");
         btnAddCard.setAttribute("type", "button");
-        btnAddCard.setAttribute("value", "Add Card");
-        btnAddCard.setAttribute("class", "btnAddCard" + swimlaneID);
+        btnAddCard.setAttribute("value", "+ Add Card");
+        btnAddCard.setAttribute("class", "btnAddCard1");
         btnAddCard.setAttribute("data-swimlane-id", swimlaneID);
         btnAddCard.addEventListener("click", addCard);
         swimlane.appendChild(btnAddCard);
 
 
         //create a "move swimlane left" button
-        const btnMoveSwimlaneLeft = document.createElement("INPUT");
-        btnMoveSwimlaneLeft.setAttribute("type", "button");
-        btnMoveSwimlaneLeft.setAttribute("value", "◀️");
-        btnMoveSwimlaneLeft.setAttribute("data-swimlane-id", swimlaneID);
-        btnMoveSwimlaneLeft.setAttribute("data-direction", "left");
-        btnMoveSwimlaneLeft.addEventListener("click", moveSwimlane);
-        swimlane.appendChild(btnMoveSwimlaneLeft);
+        // const btnMoveSwimlaneLeft = document.createElement("INPUT");
+        // btnMoveSwimlaneLeft.setAttribute("type", "button");
+        // btnMoveSwimlaneLeft.setAttribute("value", "◀️");
+        // btnMoveSwimlaneLeft.setAttribute("data-swimlane-id", swimlaneID);
+        // btnMoveSwimlaneLeft.setAttribute("data-direction", "left");
+        // btnMoveSwimlaneLeft.addEventListener("click", moveSwimlane);
+        // swimlane.appendChild(btnMoveSwimlaneLeft);
 
 
         //create a "move swimlane right" button
-        const btnMoveSwimlaneRight = document.createElement("INPUT");
-        btnMoveSwimlaneRight.setAttribute("type", "button");
-        btnMoveSwimlaneRight.setAttribute("value", "▶️");
-        btnMoveSwimlaneRight.setAttribute("data-swimlane-id", swimlaneID);
-        btnMoveSwimlaneRight.setAttribute("data-direction", "right");
-        btnMoveSwimlaneRight.addEventListener("click", moveSwimlane);
-        swimlane.appendChild(btnMoveSwimlaneRight);
-
-
-        const cardContainer = document.createElement("DIV");
-        swimlane.appendChild(cardContainer);
+        // const btnMoveSwimlaneRight = document.createElement("INPUT");
+        // btnMoveSwimlaneRight.setAttribute("type", "button");
+        // btnMoveSwimlaneRight.setAttribute("value", "▶️");
+        // btnMoveSwimlaneRight.setAttribute("data-swimlane-id", swimlaneID);
+        // btnMoveSwimlaneRight.setAttribute("data-direction", "right");
+        // btnMoveSwimlaneRight.addEventListener("click", moveSwimlane);
+        // swimlane.appendChild(btnMoveSwimlaneRight);
 
     let newSwimlaneButtonContainer = document.getElementById("new-swimlane-button-container");
 
@@ -133,14 +137,13 @@ function addSwimlane() {
 //	delete all cards in a swimlane?
 //	prompt "are you sure you want to delete the swimlane"
 //	prompt "move cards to a new swimlane"
-function deleteSwimlane() {
-    let slid = this.dataset.swimlaneId;
-
-    let container = document.querySelector(".container");
+function deleteSwimlane(slid) {
+    let container = document.querySelector(".app-container");
     let swimlane = document.getElementById("swimlane" + slid);
 
     container.removeChild(swimlane);
 }
+
 
 //add a card to swimlane
 function addCard() {
@@ -150,15 +153,15 @@ function addCard() {
     //get the swimlane id from the button that was clicked
     let slid = this.dataset.swimlaneId; 
 
-    var txtTitle = prompt("Name your card:");
-    var txtDescription = prompt("Description of your task:");
+    // var txtTitle = prompt("Name your card:");
+    // var txtDescription = prompt("Description of your task:");
 
     //	add a name to the card
     //	add a description to the card
 
     var card = document.createElement("DIV");
     card.setAttribute("id", "card" + cardID); 
-    card.setAttribute("class", "card");
+    card.setAttribute("class", "card form-group");
     card.setAttribute("data-swimlane-id", slid);
 
     var cardButtons = document.createElement("DIV");
@@ -167,7 +170,7 @@ function addCard() {
     var btnMoveLeft = document.createElement("INPUT");
     btnMoveLeft.setAttribute("id", "btnMoveLeft" + cardID);
     btnMoveLeft.setAttribute("type", "button");
-    btnMoveLeft.setAttribute("value", "◀️");
+    btnMoveLeft.setAttribute("value", "<");
     btnMoveLeft.setAttribute("data-move-direction","left");
     btnMoveLeft.setAttribute("data-card-id", cardID);
     btnMoveLeft.addEventListener("click", moveCard);
@@ -184,23 +187,25 @@ function addCard() {
     var btnMoveRight = document.createElement("INPUT");
     btnMoveRight.setAttribute("id", "btnMoveRight" + cardID);
     btnMoveRight.setAttribute("type", "button");
-    btnMoveRight.setAttribute("value", "▶️");
+    btnMoveRight.setAttribute("value", ">");
     btnMoveRight.setAttribute("data-move-direction","right");
     btnMoveRight.setAttribute("data-card-id", cardID);
     btnMoveRight.addEventListener("click", moveCard);
+    btnMoveRight.innerHTML = "";
     cardButtons.appendChild(btnMoveRight);
 
     card.appendChild(cardButtons);
 
-    var title = document.createElement("P");
-    title.innerHTML = txtTitle;
+    var title = document.createElement("INPUT");
+    title.setAttribute('placeholder','Enter a title for this card...')
+    title.setAttribute('class', 'form-control')
     card.appendChild(title);
 
-    var desc = document.createElement("P");
-    desc.innerHTML = txtDescription;
-    card.appendChild(desc);
+    // var desc = document.createElement("INPUT");
+    // desc.setAttribute('placeholder','Add a description here...')
+    // card.appendChild(desc);
 
-    let swimlane = document.querySelector("#swimlane" + slid);
+    let swimlane = document.querySelector("#card-container-" + slid);
     swimlane.appendChild(card);
 }
 
@@ -245,7 +250,7 @@ function moveSwimlane() {
 }
 
 
-//add a name to the swimlane
+
 //edit the swimlane name
 
 
@@ -293,3 +298,4 @@ function moveCard() {
         card.dataset.swimlaneId = rightSlid;
     }
 }
+
