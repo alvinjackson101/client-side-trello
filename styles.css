@@ -232,9 +232,11 @@ div {
 }
 
 .card {
-    width: 100%;
-    height: 200px;
-    background-color: #aaaaaa;
+
+        width: 100%;
+        padding: 6px;
+        background-color: transparent;
+        border: none;
 }
 
 .card-buttons {
@@ -263,7 +265,7 @@ div {
 
 #swimlane-title-input{
 
-    border-radius: 8px;
+    border-radius: 16px;
     border: 2px solid #0796a3;
     padding: 4px 8px 4px 8px;
 
@@ -284,7 +286,19 @@ div {
 .btnAddCard1{
 
     background-color: rgba(255, 255, 255, 0.2);
-    color: #fff;
+    color: #6e44a7;
+    padding: 8px  24px 8px 24px;
+    width: 90%;
+    margin-left:5%;
+    border-radius: 20px;
+    border: none;
+    opacity: .75;
+}
+
+.btnAddCard1:hover{
+
+    background-color: rgba(255, 255, 255, 0.4);
+    color: #6e44a7;
     padding: 8px  24px 8px 24px;
     width: 90%;
     margin-left:5%;
@@ -293,8 +307,9 @@ div {
 }
 
 .rounded-circle-delete{
+
     background-color: rgba(255, 255, 255, .0);
-    opacity: .5;
+    opacity: .7;
     color: #fff;
     font-size: 20px;
     border: none;
@@ -302,5 +317,21 @@ div {
     position: relative;
     right: -178px;
 
+}
 
+.form-control {
+    display: block;
+    width: 100%;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 16px;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    opacity: .7;
 }
